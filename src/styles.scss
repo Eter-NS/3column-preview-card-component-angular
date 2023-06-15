@@ -1,1 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --Stylish-font: "Big Shoulders Display", cursive;
+  --Stylish-font-weight: 700;
+  --body-font: "Lexend Deca", sans-serif;
+  --body-font-weight: 400;
+  font-size: 15px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 10vh 0;
+  display: grid;
+  place-content: center;
+}
+
+%default-card-settings {
+  --font-color: hsl(0, 0%, 95%);
+  color: var(--font-color);
+  font-family: var(--body-font);
+  font-weight: var(--body-font-weight);
+
+  a {
+    text-decoration: none;
+    padding: 0.85em 1.75em;
+    --CTA-radius: 100px;
+    border-radius: var(--CTA-radius);
+  }
+}
+
+%card-header {
+  h2 {
+    font-family: var(--Stylish-font);
+    font-weight: var(--Stylish-font-weight);
+    font-size: 2rem;
+  }
+}
+
+%card-p {
+  p {
+    color: hsla(0, 0%, 100%, 0.75);
+  }
+}
+
+%card-CTA {
+  a {
+    z-index: 0;
+    position: relative;
+    color: var(--primary-color);
+    border: 3px solid var(--font-color);
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      border-radius: var(--CTA-radius);
+      background-color: var(--font-color);
+      transition: opacity 350ms ease;
+    }
+
+    &:hover {
+      color: var(--font-color);
+
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.card--first,
+.card--last {
+  --radius: 10px;
+}
+
+.card--first {
+  border-top: {
+    left-radius: var(--radius);
+    right-radius: var(--radius);
+  }
+
+  @media screen and (min-width: 555px) {
+    border-radius: 0;
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+  }
+}
+
+.card--last {
+  border-bottom: {
+    left-radius: var(--radius);
+    right-radius: var(--radius);
+  }
+
+  @media screen and (min-width: 555px) {
+    border-radius: 0;
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+  }
+}
+
+.card--primary {
+  @extend %default-card-settings, %card-header, %card-p, %card-CTA;
+  --primary-color: hsl(31, 77%, 52%);
+  background-color: var(--primary-color);
+}
+.card--secondary {
+  @extend %default-card-settings, %card-header, %card-p, %card-CTA;
+  --primary-color: hsl(184, 100%, 22%);
+  background-color: var(--primary-color);
+}
+.card--third {
+  @extend %default-card-settings, %card-header, %card-p, %card-CTA;
+  --primary-color: hsl(179, 100%, 13%);
+  background-color: var(--primary-color);
+}
