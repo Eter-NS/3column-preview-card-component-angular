@@ -35,8 +35,8 @@ Desktop:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Frontend Mentor solution site](https://www.frontendmentor.io/solutions/3column-preview-card-component-using-angular-JTJk_VfiTg)
+- [Live Site](https://3column-preview-card-component-angular.vercel.app/)
 
 ## My process
 
